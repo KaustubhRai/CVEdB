@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVE DATA</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="logo">CVEdB</a>
+        <div class="header-right">
+            <a class="active" href="/">Home</a>
+            <a href="/about">About</a>
+        </div>
+      </div>
+    <br>
+    <span class="cve_id_text">
+        <h2 style="margin:10px; 
+        font-family: Rosarivo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 27px;
+        line-height: 38px;
+        align-items: flex-end;
+        letter-spacing: 0.235em;
+        color: #000000;"> {{ cve_id_number }} </h2>
+    </span>    
+    <span class="cve_description_text">
+        <p style="margin:10px; 
+        font-family: Rosarivo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 38px;
+        align-items: flex-end;
+        letter-spacing: 0.235em;
+        color: #000000;"> {{ cve_info }} </p>
+    </span>
+    <br>
+    <p style="margin:10px; 
+        font-family: Rosarivo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 27px;
+        line-height: 38px;
+        align-items: flex-end;
+        letter-spacing: 0.235em;
+        color: #000000;"> CVSS Score </p>
+    <br>
+    Base Score is {{ exploit_price_return[1] }}
+    <br>
+        <img src="{{url_for('static', filename= 'Screenshots/'+screenshot )}}">
+    <br>
+    <br>
+    <p style="margin:10px; 
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 38px;
+    align-items: flex-end;
+    letter-spacing: 0.235em;
+    color: #000000;">
+    Exploit Links for <em>{{ cve_id_number }}</em> : 
+        {% for exploit_link_list in exploit_links_list %}
+            <a href="{{ exploit_link_list }}" target="_blank">Link</a>
+        {% endfor %}
+        </p>
+    <br>
+    <br>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API -->
+    <!-- for copying code  -->
+    <!-- https://stackoverflow.com/questions/22581345/click-button-copy-to-clipboard -->
+    
+    <p style="margin:10px; 
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    line-height: 38px;
+    align-items: flex-end;
+    letter-spacing: 0.235em;
+    color: #000000;">
+        Exploit Code
+    </p><br>
+        <div class="content">
+            <pre>
+                <code>
+                    {{ exploit_code_return }} 
+                    </code>
+            </pre>
+            
+        </div>
+           
+    <!-- <div class="code-section">
+        <code>{{ exploit_code_return }} </code>
+    </div> -->
+    <br>
+    <button class="copy-text" href="#">Click to Copy</button>
+    <br>
+    <br>
+    <p style="margin:10px; 
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 38px;
+    align-items: flex-end;
+    letter-spacing: 0.235em;
+    color: #000000;">
+        Exploit Price Section
+    </p>
+    {{ exploit_price_return[0] }}
+    <br>
+    <br>
+    <p style="margin:10px; 
+    font-family: Rosarivo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 38px;
+    align-items: flex-end;
+    letter-spacing: 0.235em;
+    color: #000000;">
+        Countermeasure
+    </p>
+    {{ exploit_price_return[4] }}
+    <br>
+    <br>
+    <p>
+        <h2 style="margin:10px; 
+        font-family: Rosarivo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 27px;
+        line-height: 38px;
+        align-items: flex-end;
+        letter-spacing: 0.235em;
+        color: #000000;"> Capec Solutions </h2>
+        <div id="capec_text"> 
+            <div id="capec-item-list">
+                <table class="tg">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Solutions</th>
+                    </tr>
+            {% for capec_item in capec %}
+                <tr class="table">
+                    <td class="table_capec_id">{{ capec_item.id }}</td>
+                    <td class="table_capec_name">{{ capec_item.name }}</td>
+                    <td class="table_capec_solution">{{ capec_item.solutions }}</td>
+                </tr>            
+                <!-- {% for key, value in capec_item.items() %}
+                    <tr>
+                        <th> {{ key }} </th>
+                        <td> {{ value }} </td> 
+                    </tr>
+                {% endfor %} -->
+            {% endfor %}
+                </table>
+            </div>
+        </div>        
+        
+        <button onclick="capec_showMore()" id="capec-Btn">Read More</button>
+        
+    </p>
+    
+<!-- CVE Vulnerable Products starts here -->
+    <br><br>
+    <p class="cve_vulnerable_products">
+        <h2 style="margin:10px; 
+        font-family: Rosarivo;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 27px;
+        line-height: 38px;
+        align-items: flex-end;
+        letter-spacing: 0.235em;
+        color: #000000;"> Vulnerable Products are :- </h2> 
+        <span class="cve_vulnerable_products_text">
+            <ul>
+                {% for vulnerable_each_product in vulnerable_product %}
+                  <li>{{ vulnerable_each_product }}</li>
+                {% endfor %}
+            </ul>
+        </span>
+    </p>       
+    <br><br>
+
+    <!-- Discus comment section starts here  -->
+    <footer>
+        <div id="disqus_thread"></div>
+<script>
+// get the text from the DOM Element: 
+const textToCopy = document.querySelector('.content').innerText;
+
+// when someone clicks on the <a class="copy-text"> element 
+// (which should be a <button>), execute the copy command:
+document.querySelector('.copy-text').addEventListener('click' , ()=> {
+  navigator.clipboard.writeText(textToCopy).then(
+    function() {
+      /* clipboard successfully set */
+      window.alert('Success! The exploit code was copied to your clipboard'); 
+    }, 
+    function() {
+      /* clipboard write failed */
+      window.alert('Opps! Your browser does not support the Clipboard API');
+    }
+  )
+})
+
+/* Discus Stuff for a comment section on page */
+
+    var disqus_config = function () {
+    this.page.url = "http://127.0.0.1:5000/data";  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = "cve_id_text"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://cvedb.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>    
+    <footer>
+        <script id="dsq-count-scr" src="//cvedb.disqus.com/count.js" async></script>
+</body>
+</html>

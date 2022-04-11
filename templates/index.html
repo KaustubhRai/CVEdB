@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVEdB</title>
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+    <center>
+        <h1 style="font-family: Roboto; font-style: normal; font-weight: normal; font-size: 30px; line-height: 35px; align-items: flex-end; letter-spacing: 0.235em; color: #000000; mix-blend-mode: darken;">Welcome to CVEdB!</h1>
+        <br>
+
+        <div class="search-container">
+            <form action="/data" method="POST">
+              <input type="search" placeholder="Enter CVE ID.." name="search">
+              <button><svg viewBox="0 0 1024 1024"><path class="path1" d="M848.471 928l-263.059-263.059c-48.941 36.706-110.118 55.059-177.412 55.059-171.294 0-312-140.706-312-312s140.706-312 312-312c171.294 0 312 140.706 312 312 0 67.294-24.471 128.471-55.059 177.412l263.059 263.059-79.529 79.529zM189.623 408.078c0 121.364 97.091 218.455 218.455 218.455s218.455-97.091 218.455-218.455c0-121.364-103.159-218.455-218.455-218.455-121.364 0-218.455 97.091-218.455 218.455z"></path></svg></button>
+            </form>
+        </div>
+        
+        <br>
+        <h2 style="font-family: Red Hat Display;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 25px;
+        line-height: 33px;
+        /* identical to box height */
+        
+        align-items: flex-end;
+        text-align: center;
+        letter-spacing: 0.235em;
+        
+        color: #000000;">
+            The homepage of my Major Project
+        </h2>
+        <br>
+        <h3 style=" font-family: Rounded Mplus 1c;
+font-style: normal;
+font-weight: normal;
+font-size: 27px;
+line-height: 40px;
+align-items: flex-end;
+text-align: center;
+letter-spacing: 0.235em;
+
+color: #000000;"> 
+            
+                We explain vulnerabilities, exploits and we provide additional threat intelligence information like current risk levels and exploit prices plus  a solution to how to prevent making the design flaw when developing a software for the vulnerability
+            
+        </h3>
+    </center>        
+</body>
+</html>
+
+
+
