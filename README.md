@@ -12,6 +12,8 @@ For a cleaner usage, make a virtualenv and then install the depenendecies.
 After installing the dependencies, run the flask app. 
 > py ./app.py - *Windows*
 
+Also for that user friendly chart that shows CVSS scores neatly, download [Chromedriver](https://chromedriver.chromium.org/downloads) and keep in the same folder.
+
 Then visit the localhost link the flask app provides.
 
 Will upload it somewhere in the future or not, idk.
