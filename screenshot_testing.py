@@ -1,6 +1,7 @@
 from selenium import webdriver
 from exploit_price import vulrul
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 
 """
 DRIVER = 'chromedriver'
@@ -23,7 +24,9 @@ driver.quit()
 
 def cvss_screenshot(cve_id):
 	DRIVER = 'chromedriver'
-	driver = webdriver.Chrome(DRIVER)
+	opt=Options()
+	opt.headless=True
+	driver = webdriver.Chrome(DRIVER,chrome_options=opt)
 	url_a = "https://chandanbn.github.io/cvss/#CVSS:3.1/"
 	vulurl_results = vulrul(cve_id)
 	url_b = vulurl_results[2]
