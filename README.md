@@ -16,7 +16,7 @@ Also for that user friendly chart that shows CVSS scores neatly, download [Chrom
 
 Then visit the localhost link the flask app provides.
 
-Will upload it somewhere in the future or not, idk.
+Will upload it somewhere in the future if i make the rotating api keys concept and implement it successfully, or not idk.
 
 The Result Video
 
